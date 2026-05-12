@@ -10,8 +10,11 @@ function calculateResult() {
         Number(document.getElementById("m7").value) +
         Number(document.getElementById("m8").value);
 
-    document.getElementById("total").innerHTML =
-        "Total Marks: " + totalMarks + " / 800";
+
+    //let totalText = document.getElementById("total");
+    //let resultText = document.getElementById("result");
+
+    document.getElementById("total").innerHTML = "Total Marks: " + totalMarks + " / 800";
 
     if (totalMarks >= 700) {
         document.getElementById("result").innerHTML = "DISTINCTION";
