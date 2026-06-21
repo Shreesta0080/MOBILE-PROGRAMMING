@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  SafeAreaView, ScrollView, View, Text, StyleSheet,
-} from 'react-native';
+import { SafeAreaView, ScrollView, View, Text, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 const todayNotifs = [
@@ -38,7 +36,7 @@ export default function NotificationsScreen() {
         <Text style={s.groupLabel}>Yesterday</Text>
         {yesterdayNotifs.map((n) => (
           <View key={n.id} style={[s.card, { opacity: 0.5 }]}>
-            <View style={s.iconWrap}>
+            <View style={[s.iconWrap, { backgroundColor: '#F8FAFC' }]}>
               <Ionicons name="notifications-outline" size={16} color="#94A3B8" />
             </View>
             <View style={{ flex: 1 }}>
@@ -47,6 +45,7 @@ export default function NotificationsScreen() {
             </View>
           </View>
         ))}
+        <View style={{ height: 20 }} />
       </ScrollView>
     </SafeAreaView>
   );
@@ -54,20 +53,22 @@ export default function NotificationsScreen() {
 
 const s = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#F5F6FA' },
-  header: { padding: 16, paddingBottom: 8 },
-  title: { fontSize: 22, fontWeight: '700', color: '#0F172A' },
-  sub: { fontSize: 12, color: '#64748B' },
-  scroll: { paddingHorizontal: 16 },
-  groupLabel: { fontSize: 12, fontWeight: '600', color: '#94A3B8', marginBottom: 8, marginTop: 8 },
+  header: { padding: 16, backgroundColor: '#fff', borderBottomWidth: 0.5, borderBottomColor: '#E2E8F0' },
+  title: { fontSize: 20, fontWeight: '700', color: '#0F172A' },
+  sub: { fontSize: 12, color: '#94A3B8' },
+  scroll: { padding: 16 },
+  groupLabel: { fontSize: 12, fontWeight: '600', color: '#94A3B8', marginBottom: 8, marginTop: 8, textTransform: 'uppercase', letterSpacing: 0.5 },
   card: {
-    backgroundColor: '#fff', borderRadius: 12, padding: 12,
+    backgroundColor: '#fff', borderRadius: 14, padding: 14,
     flexDirection: 'row', alignItems: 'flex-start', marginBottom: 8,
-    borderWidth: 0.5, borderColor: '#E5E7EB', gap: 10,
+    borderWidth: 0.5, borderColor: '#E2E8F0', gap: 12,
+    shadowColor: '#000', shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.04, shadowRadius: 4, elevation: 1,
   },
   iconWrap: {
-    width: 32, height: 32, borderRadius: 8, backgroundColor: '#EFF6FF',
-    alignItems: 'center', justifyContent: 'center',
+    width: 36, height: 36, borderRadius: 10,
+    backgroundColor: '#EFF6FF', alignItems: 'center', justifyContent: 'center',
   },
-  nText: { fontSize: 13, color: '#0F172A', lineHeight: 18 },
-  nTime: { fontSize: 11, color: '#94A3B8', marginTop: 3 },
+  nText: { fontSize: 13, color: '#0F172A', lineHeight: 19, fontWeight: '500' },
+  nTime: { fontSize: 11, color: '#94A3B8', marginTop: 4 },
 });
